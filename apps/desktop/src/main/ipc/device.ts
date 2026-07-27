@@ -2,6 +2,7 @@ import { GetDevices } from '@cypherock/cysync-interfaces';
 import { FirmwareVariant, ManagerApp } from '@cypherock/sdk-app-manager';
 import { DeviceConnection as DeviceConnectionHID } from '@cypherock/sdk-hw-hid';
 import { DeviceConnection as DeviceConnectionSerialPort } from '@cypherock/sdk-hw-serialport';
+import { DeviceConnection as DeviceConnectionBLE } from '@cypherock/sdk-hw-ble-node';
 import {
   DeviceConnectionError,
   DeviceConnectionErrorType,
@@ -23,7 +24,9 @@ const getDevices: GetDevices = async () => {
 
   const serialDevices = await DeviceConnectionSerialPort.list();
 
-  return [...hidDevices, ...serialDevices];
+  const bleDevices = await DeviceConnectionBLE.list();
+
+  return [...hidDevices, ...serialDevices, ...bleDevices];
 };
 
 const connectDevice = async (device: IDevice) => {

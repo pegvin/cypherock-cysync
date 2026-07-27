@@ -2,6 +2,7 @@ import { createLoggerWithPrefix } from '@cypherock/cysync-utils';
 import { SDK } from '@cypherock/sdk-core';
 import { DeviceConnection as DeviceConnectionHID } from '@cypherock/sdk-hw-hid';
 import { DeviceConnection as DeviceConnectionSerialPort } from '@cypherock/sdk-hw-serialport';
+import { DeviceConnection as DeviceConnectionBLE } from '@cypherock/sdk-hw-ble-node';
 import {
   ConnectionTypeMap,
   IDevice,
@@ -81,6 +82,8 @@ export const connectDevice = async (
 
   if (device.type === ConnectionTypeMap.HID) {
     connection = await DeviceConnectionHID.connect(device);
+  } else if (device.type === ConnectionTypeMap.BLE) {
+    connection = await DeviceConnectionBLE.connect(device);
   } else {
     connection = await DeviceConnectionSerialPort.connect(device);
   }
