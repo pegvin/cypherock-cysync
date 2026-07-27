@@ -1,0 +1,4 @@
+[submodule "submodules/sdk"]
+	path = submodules/sdk
+	url = https://github.com/pegvin/cypherock-sdk
+	branch = hw-ble-node/wip
