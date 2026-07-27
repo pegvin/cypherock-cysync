@@ -1,3 +1,0 @@
-[submodule "submodules/sdk"]
-	path = submodules/sdk
-	url = ../sdk.git
