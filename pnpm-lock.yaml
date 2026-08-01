@@ -149,6 +149,9 @@ importers:
       '@cypherock/sdk-app-manager':
         specifier: ^0.0.37
         version: 0.0.37
+      '@cypherock/sdk-hw-ble-node':
+        specifier: link:../../submodules/sdk/packages/hw-ble-node
+        version: link:../../submodules/sdk/packages/hw-ble-node
       '@cypherock/sdk-hw-hid':
         specifier: ^0.0.24
         version: 0.0.24
@@ -156,11 +159,11 @@ importers:
         specifier: ^0.0.21
         version: 0.0.21
       '@cypherock/sdk-interfaces':
-        specifier: ^0.0.16
-        version: 0.0.16
+        specifier: link:../../submodules/sdk/packages/interfaces
+        version: link:../../submodules/sdk/packages/interfaces
       '@cypherock/sdk-utils':
-        specifier: ^0.0.21
-        version: 0.0.21
+        specifier: link:../../submodules/sdk/packages/util
+        version: link:../../submodules/sdk/packages/util
       '@inquirer/checkbox':
         specifier: ^1.3.5
         version: 1.3.5
@@ -14601,6 +14604,7 @@ packages:
   /@xmldom/xmldom@0.8.10:
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
     requiresBuild: true
     dev: true
 

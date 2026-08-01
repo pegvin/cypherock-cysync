@@ -1,5 +1,6 @@
 import { DeviceConnection as DeviceConnectionHID } from '@cypherock/sdk-hw-hid';
 import { DeviceConnection as DeviceConnectionSerial } from '@cypherock/sdk-hw-serialport';
+import { DeviceConnection as DeviceConnectionBLE } from '@cypherock/sdk-hw-ble-node';
 import {
   DeviceConnectionError,
   DeviceConnectionErrorType,
@@ -13,6 +14,7 @@ export const getDevices = async () => {
   const devices = [
     ...(await DeviceConnectionHID.list()),
     ...(await DeviceConnectionSerial.list()),
+    ...(await DeviceConnectionBLE.list())
   ];
 
   return devices;
@@ -27,6 +29,9 @@ export const connectDevice = async (
 
   if (device.type === 'hid') {
     connectionInstance = await DeviceConnectionHID.connect(device);
+    return connectionInstance;
+  } else if (device.type === 'ble') {
+    connectionInstance = await DeviceConnectionBLE.connect(device);
     return connectionInstance;
   }
 
